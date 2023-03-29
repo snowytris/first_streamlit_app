@@ -25,9 +25,8 @@ if add_fruit:
     ('{fruit_to_add}');
     """)
 
-  # Display all fruits
-  
- with conn.cursor() as c:
+# Display all fruits
+with conn.cursor() as c:
   all_fruits = c.execute("SELECT * FROM fruit_load_list;").fetchall()
   st.dataframe(all_fruits)
   
