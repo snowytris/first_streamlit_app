@@ -21,13 +21,15 @@ add_fruit = st.button("Add fruit!")
 if add_fruit:
   with conn.cursor() as c:
     c.execute(f"""
-    INSERT INTO fruit_load_list VALUES 
+    INSERT INTO PC_RIVERY_DB.PUBLIC.FRUIT_LOAD_LIST (
+      FRUIT_NAME
+    ) VALUES 
     ('{fruit_to_add}');
     """)
 
 # Display all fruits
 with conn.cursor() as c:
-  all_fruits = c.execute("SELECT * FROM fruit_load_list;").fetchall()
+  all_fruits = c.execute("SELECT * FROM PC_RIVERY_DB.PUBLIC.FRUIT_LOAD_LIST;").fetchall()
   st.dataframe(all_fruits)
   
   
